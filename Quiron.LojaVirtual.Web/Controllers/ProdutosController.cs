@@ -20,6 +20,7 @@ namespace Quiron.LojaVirtual.Web.Controllers
 			var produtos = _repositorio.Produtos.Take(10);
 			//retorna uma View de Produtos, para criar foi só clicar com o botão direito e ADD VIEW, Template: List, e Model class: Produto (Quiron.LojaVirtual.Dominio.Entidades), Data Context: EfDbContext (Quiron.LojaVirtual.Dominio.Repositorio)
             return View(produtos);
+
         }
     }
 }

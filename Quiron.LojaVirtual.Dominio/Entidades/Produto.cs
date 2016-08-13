@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Quiron.LojaVirtual.Dominio.Entidades
+﻿namespace Quiron.LojaVirtual.Dominio.Entidades
 {
-	class Produto
+	public class Produto
 	{
 		public int ProdutoId { get; set; }
 

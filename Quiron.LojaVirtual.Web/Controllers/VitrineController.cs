@@ -15,18 +15,19 @@ namespace Quiron.LojaVirtual.Web.Controllers
 		public int ProdutosPorPagina = 3;
 
 		// GET: Produtos
-		public ViewResult ListaProdutos(int pagina = 1)
+		public ViewResult ListaProdutos(string categoria, int pagina = 1)
 		{
 			_repositorio = new ProdutosRepositorio();
 
 			ProdutosViewModel model = new ProdutosViewModel
 			{
 
-				//ordena os produtos retornados e seleciona 3, depois pagina removando os que já foram exibidos.
+				//ordena os produtos retornados e seleciona 3, depois pagina removando os que já foram exibidos / faz o filtro por categoria tambem
 				Produtos = _repositorio.Produtos
-				.OrderBy(p => p.Descricao)
-				.Skip((pagina - 1) * ProdutosPorPagina)
-				.Take(ProdutosPorPagina),
+					.Where(p => p.Categoria == null || p.Categoria == categoria)
+					.OrderBy(p => p.Descricao)
+					.Skip((pagina - 1) * ProdutosPorPagina)
+					.Take(ProdutosPorPagina),
 
 				Paginacao = new Paginacao
 				{
@@ -34,7 +35,9 @@ namespace Quiron.LojaVirtual.Web.Controllers
 					ItensPorPagina = ProdutosPorPagina,
 					//conta quantos produtos tem no banco:
 					ItensTotal = _repositorio.Produtos.Count()
-				}
+				},
+				//serve para mudar a classe do botão da categoria que é clicada
+				CategoriaAtual = categoria
 
 			};
 

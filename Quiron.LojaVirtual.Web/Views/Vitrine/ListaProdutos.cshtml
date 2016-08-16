@@ -6,11 +6,8 @@
 *@
 @foreach (var p in Model.Produtos)
 {
-    <div>
-        <h3>@p.Nome</h3>
-        @p.Descricao
-        <h3>@p.Preco.ToString("c")</h3>
-    </div>
+    //A PartialView Serve para reaproveitar o codigo
+    @Html.Partial("ProdutoDetalhes", p)
 }
 @*Paginação:*@
-@Html.PageLinks(Model.Paginacao, x => Url.Action("ListaProdutos", new  { pagina = x}))
+@Html.PageLinks(Model.Paginacao, x => Url.Action("ListaProdutos", new { pagina = x }))

@@ -1,0 +1,9 @@
+﻿@model Quiron.LojaVirtual.Dominio.Entidades.Produto
+
+@*Porque Model? porque o Produto é um modelo*@
+
+<div>
+    <h3>@Model.Nome</h3>
+    @Model.Descricao
+    <h3>@Model.Preco.ToString("c")</h3>
+</div>

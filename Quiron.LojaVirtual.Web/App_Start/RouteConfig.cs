@@ -14,7 +14,7 @@ namespace Quiron.LojaVirtual.Web
 			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
 
-			// 1 - Inicio
+			//1 - Quando a URL for "/" vai trazer produtos de todas as categorias
 
 			routes.MapRoute(null,
 				"",
@@ -29,7 +29,7 @@ namespace Quiron.LojaVirtual.Web
 				});
 
 
-			// 2
+			// 2 - Quando for a URL "/Pagina{X}" traz todas as categorias da Página X
 
 			routes.MapRoute(null,
 				"Pagina{pagina}",
@@ -39,10 +39,10 @@ namespace Quiron.LojaVirtual.Web
 					action = "ListaProdutos",
 					categoria = (string)null
 				},
-				new { pagina = @"\d+" });
+				new { pagina = @"\d+" }); // expressao reglar para tratamento para receber somente numero
 
 
-			//3
+			//3 - Quando for a URL "/{Categoria}" Primeira página da Categoria X
 
 			routes.MapRoute(null, "{categoria}", new
 			{
@@ -52,7 +52,7 @@ namespace Quiron.LojaVirtual.Web
 			});
 
 
-			//4
+			//4 - Quando for a URL "{Categoria X}/{Pagina X}" Página X da Categoria X
 
 			routes.MapRoute(null,
 				"{categoria}Pagina{pagina}",

@@ -17,7 +17,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Loja Virtual MVC .NET", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -25,17 +25,17 @@
             </div>
         </div>
     </div>
-
     <div class="container body-content">
-
-        <div class="row">
-            <div class="col-md-2">
-               @Html.Action("Menu","Categoria")
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2" style="padding-top:20px;">
+                    @Html.Action("Menu", "Categoria")
             </div>
             <div class="col-md-10">
                 @RenderBody()
             </div>
         </div>
+    </div>
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - Julinho ASP.NET MVC 5 Application</p>

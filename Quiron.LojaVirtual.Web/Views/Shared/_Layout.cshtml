@@ -27,10 +27,18 @@
     </div>
 
     <div class="container body-content">
-        @RenderBody()
+
+        <div class="row">
+            <div class="col-md-2">
+               @Html.Action("Menu","Categoria")
+            </div>
+            <div class="col-md-10">
+                @RenderBody()
+            </div>
+        </div>
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Julinho ASP.NET MVC 5 Application</p>
         </footer>
     </div>
 

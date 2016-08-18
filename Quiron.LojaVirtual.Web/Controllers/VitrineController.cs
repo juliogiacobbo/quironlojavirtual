@@ -24,7 +24,7 @@ namespace Quiron.LojaVirtual.Web.Controllers
 
 				//ordena os produtos retornados e seleciona 3, depois pagina removando os que já foram exibidos / faz o filtro por categoria tambem
 				Produtos = _repositorio.Produtos
-					.Where(p => p.Categoria == null || p.Categoria == categoria)
+					.Where(p => categoria == null || p.Categoria == categoria)
 					.OrderBy(p => p.Descricao)
 					.Skip((pagina - 1) * ProdutosPorPagina)
 					.Take(ProdutosPorPagina),

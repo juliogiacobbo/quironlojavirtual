@@ -55,7 +55,7 @@ namespace Quiron.LojaVirtual.Web
 			//4 - Quando for a URL "{Categoria X}/{Pagina X}" Página X da Categoria X
 
 			routes.MapRoute(null,
-				"{categoria}Pagina{pagina}",
+				"{categoria}/Pagina{pagina}",
 				new
 				{
 					controller = "Vitrine",

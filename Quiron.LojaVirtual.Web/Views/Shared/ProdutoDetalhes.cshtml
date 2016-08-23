@@ -2,8 +2,19 @@
 
 @*Porque Model? porque o Produto é um modelo*@
 
-<div>
-    <h3>@Model.Nome</h3>
-    @Model.Descricao
-    <h3>@Model.Preco.ToString("c")</h3>
+<div class="well">
+    <h3><b>@Model.Nome</b></h3>
+    <h3><span class="pull-right label label-primary">@Model.Preco.ToString("c")</span></h3>
+
+    @*Adicional a Action "Adicionar" e o controle "Carrinho"*@
+    @using(Html.BeginForm("Adicionar", "Carrinho"))
+    {
+        <div class="pull-right">
+            @*Traz o ID do produto, atraves do Modelo lá de cima:*@
+            @Html.HiddenFor(x => x.ProdutoId)
+            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+            <input type="submit" class="btn btn-success" value="Comprar" />
+        </div>
+    }
+    <h3> <span class="lead">@Model.Descricao</span></h3>
 </div>
